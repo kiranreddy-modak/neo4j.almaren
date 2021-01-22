@@ -89,7 +89,7 @@ import com.github.music.of.the.ainur.almaren.neo4j.Neo4j.Neo4jImplicit
   val almaren = Almaren("neo4j-almaren")
 
 
-  val df1 = almaren.builder
+  val df = almaren.builder
     .sourceSql("select * from person_info")
     .targetNeo4j(
       "bolt://localhost:7687",
