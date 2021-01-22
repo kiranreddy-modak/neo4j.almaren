@@ -89,13 +89,14 @@ import com.github.music.of.the.ainur.almaren.neo4j.Neo4j.Neo4jImplicit
   val almaren = Almaren("neo4j-almaren")
 
 
-  val df = almaren.builder
+  val df1 = almaren.builder
     .sourceSql("select * from person_info")
     .targetNeo4j(
       "bolt://localhost:7687",
       Map("labels" -> "Person",
         "authentication.basic.username" -> "neo4j",
-        "authentication.basic.password" -> "neo4j1234"),
-      SaveMode.ErrorIfExists
+        "authentication.basic.password" -> "neo4j1234",
+        "node.keys" -> "first_name, last_name, country"),
+      SaveMode.Overwrite
     ).batch
 
